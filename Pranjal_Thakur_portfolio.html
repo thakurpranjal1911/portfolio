@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pranjal Thakur — Frontend Developer</title>
+<meta name="description" content="Frontend developer with 4+ years shipping production web apps in Angular, React, Vue, and Dojo. Builds MCP servers and makes codebases agent-ready." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Pranjal Thakur",
+  "jobTitle": "Frontend Developer",
+  "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" },
+  "email": "pranjal.thakur.work@gmail.com",
+  "url": "https://your-portfolio-url",
+  "sameAs": ["https://linkedin.com/in/pranjal-thakur-b3994418b, "https://github.com/thakurpranjal1911"],
+  "knowsAbout": ["Angular", "React", "Vue.js", "TypeScript", "MCP servers", "AI tooling"],
+  "worksFor": { "@type": "Organization", "name": "Smart Streams" }
+}
+</script>
+
+<style>
+  :root {
+    --bg: #F4F2EC;
+    --surface: #FFFFFF;
+    --ink: #14130F;
+    --ink-soft: #6B6862;
+    --ink-faint: #989488;
+    --hairline: #D8D3C7;
+    --hairline-strong: #C2BCAC;
+    --accent: #2438E8;
+    --accent-soft: #ECEEFF;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', 'Menlo', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection { background: var(--accent); color: #fff; }
+
+  a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--hairline-strong);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: text-decoration-color 0.15s;
+  }
+  a:hover { text-decoration-color: var(--accent); }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(244, 242, 236, 0.82);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+  }
+  .logo {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+  }
+  .logo::before {
+    content: "—";
+    color: var(--accent);
+    margin-right: 8px;
+  }
+  .view-toggle {
+    display: flex;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    overflow: hidden;
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--surface);
+  }
+  .view-toggle button {
+    background: transparent;
+    border: none;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--ink-soft);
+    transition: all 0.18s;
+    letter-spacing: 0.02em;
+  }
+  .view-toggle button.active {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  /* ============ ROW LABELS (bracket motif) ============ */
+  .label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .label::before { content: "["; color: var(--accent); margin-right: 1px; }
+  .label::after { content: "]"; color: var(--accent); margin-left: 1px; }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 96px 0 64px;
+  }
+  .hero .label { display: block; margin-bottom: 24px; }
+  .hero h1 {
+    font-family: var(--serif);
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    font-size: clamp(44px, 8.5vw, 96px);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    margin-bottom: 28px;
+    max-width: 16ch;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-variation-settings: "opsz" 144;
+  }
+  .hero p.lead {
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-bottom: 36px;
+  }
+  .hero p.lead strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    padding: 6px 12px;
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 999px;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .tag .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #3CA84B;
+    margin-right: 6px;
+    vertical-align: middle;
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ============ SECTIONS ============ */
+  section.block {
+    padding: 72px 0;
+    border-top: 1px solid var(--hairline);
+  }
+  .block-head {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+    align-items: baseline;
+  }
+  .block-head h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(28px, 4.2vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  /* ============ ROLES ============ */
+  .role {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    padding: 28px 0;
+    border-top: 1px dashed var(--hairline);
+  }
+  .role:first-of-type { border-top: none; padding-top: 0; }
+  .role-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .role-meta strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .role h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.25;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .role .role-sub {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+  }
+  .role ul {
+    list-style: none;
+    padding: 0;
+  }
+  .role ul li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 10px;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .role ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 13px;
+    top: 2px;
+  }
+  .role ul li b {
+    font-weight: 600;
+  }
+
+  /* ============ WORK CARDS ============ */
+  .work-grid {
+    display: grid;
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .work-card {
+    background: var(--surface);
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    transition: background 0.2s;
+  }
+  .work-card:hover { background: #FCFBF7; }
+  .work-meta {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .work-meta .kind {
+    color: var(--accent);
+    font-weight: 500;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .work-card h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .work-card p {
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin-bottom: 14px;
+    max-width: 60ch;
+  }
+  .work-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .stack-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 9px;
+    background: var(--bg);
+    border-radius: 4px;
+    color: var(--ink-soft);
+  }
+
+  /* ============ STACK ============ */
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px 48px;
+  }
+  .stack-group h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  .stack-group ul {
+    list-style: none;
+  }
+  .stack-group li {
+    font-size: 15px;
+    padding: 4px 0;
+    color: var(--ink);
+  }
+  .stack-group li span.muted {
+    color: var(--ink-faint);
+    font-size: 13px;
+    margin-left: 6px;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact-block h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin-bottom: 36px;
+    max-width: 18ch;
+  }
+  .contact-block h2 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .contact-links {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 32px;
+    padding-top: 28px;
+    border-top: 1px solid var(--hairline);
+  }
+  .contact-links dt {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-soft);
+    padding: 8px 0;
+  }
+  .contact-links dd {
+    font-size: 16px;
+    padding: 8px 0;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--hairline);
+    margin-top: 60px;
+    font-family: var(--mono);
+    font-size: 11.5px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ============ AGENT VIEW ============ */
+  #agent-view {
+    display: none;
+    padding: 60px 0 100px;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    line-height: 1.7;
+  }
+  #agent-view.active { display: block; }
+  body.agent-mode #main-content { display: none; }
+
+  #agent-view .agent-header {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--hairline);
+  }
+  #agent-view .agent-header .label { display: block; margin-bottom: 8px; }
+  #agent-view .agent-header h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  #agent-view .agent-header p {
+    font-family: var(--sans);
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  pre.json {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 6px;
+    padding: 24px;
+    overflow-x: auto;
+    white-space: pre;
+    color: var(--ink);
+  }
+  pre.json .k { color: #8E4FD4; }
+  pre.json .s { color: #2E7C3B; }
+  pre.json .n { color: #B5651D; }
+  pre.json .b { color: var(--accent); }
+  pre.json .c { color: var(--ink-faint); }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 720px) {
+    .wrap { padding: 0 20px; }
+    .hero { padding: 64px 0 48px; }
+    .block-head,
+    .role,
+    .work-card,
+    .contact-links {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+    .block-head { margin-bottom: 32px; }
+    .role { padding: 24px 0; }
+    .role-meta, .work-meta {
+      font-size: 11px;
+    }
+    section.block { padding: 56px 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition: none !important; }
+    html { scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <div class="logo">Pranjal Thakur</div>
+    <div class="view-toggle" role="tablist" aria-label="Display mode">
+      <button class="active" data-view="human" aria-pressed="true">human</button>
+      <button data-view="agent" aria-pressed="false">agent</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap" id="main-content">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <span class="label">engineering profile · v4.0</span>
+    <h1>Frontend developer making codebases <em>agent-ready</em>.</h1>
+    <p class="lead">
+      Four years shipping production web apps in <strong>Angular, React, Vue, and Dojo</strong>.
+      Recently focused on the seam between frontend engineering and AI tooling — building
+      <strong>MCP servers</strong>, integrating coding agents into team workflows, and turning
+      shared component libraries into systems agents can read, reason about, and contribute to.
+    </p>
+    <div class="tag-row">
+      <span class="tag"><span class="dot"></span>open to remote</span>
+      <span class="tag">based in Mumbai · IST</span>
+      <span class="tag">4+ years</span>
+      <span class="tag">currently @ Smart Streams</span>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section class="block" id="experience">
+    <div class="block-head">
+      <span class="label">experience</span>
+      <h2>Where I've shipped, and what I shipped there.</h2>
+    </div>
+
+    <div class="role">
+      <div class="role-meta">
+        <strong>Smart Streams</strong>
+        Nov 2025 — Present<br>
+        Financial products<br>
+        Remote/Hybrid
+      </div>
+      <div>
+        <h3>Frontend Developer</h3>
+        <p class="role-sub">Reusable component library powering the firm's digital transformation across products.</p>
+        <ul>
+          <li>Led major version upgrades end-to-end: <b>Angular 18 → 21</b> and <b>Storybook 8 → 10</b>, including breaking-change migration paths and downstream coordination.</li>
+          <li>Built an <b>MCP server for the component library</b>, giving product teams agent-accessible context that meaningfully accelerated their UI work.</li>
+          <li>Drove <b>AI enablement of the workspace from scratch</b> — authored agent-readiness documentation, conventions, and onboarding for product teams adopting AI tooling.</li>
+          <li>Wrote E2E coverage in <b>Playwright</b> alongside unit tests in <b>Karma</b> and <b>Vitest</b>.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="role">
+      <div class="role-meta">
+        <strong>Tata Consultancy Services</strong>
+        Jun 2022 — Nov 2025<br>
+        Xvantage · Ingram Micro<br>
+        B2B e-commerce
+      </div>
+      <div>
+        <h3>Frontend Developer</h3>
+        <p class="role-sub">Digital transformation of a multi-domain B2B commerce platform.</p>
+        <ul>
+          <li>Shipped work across <b>Order Status Tracking, Cart &amp; Checkout, Global Discount Management, and Subscription Management</b>.</li>
+          <li>Built the <b>Support Platform from scratch</b> and integrated a chat assistant using <b>Google CCAI Platform and Dialogflow</b>, moving a manual call-driven workflow onto a self-serve digital channel.</li>
+          <li>Primary stack React + React Testing Library; contributed to <b>Angular 17, Vue 3, and Dojo JS</b> modules across the platform.</li>
+          <li>Recognized with <b>Spot Performer, Star Performer, Star Team, and Work Excellence</b> awards during tenure.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SELECTED WORK ============ -->
+  <section class="block" id="work">
+    <div class="block-head">
+      <span class="label">selected work</span>
+      <h2>Projects worth pointing to.</h2>
+    </div>
+
+    <div class="work-grid">
+
+      <article class="work-card">
+        <div class="work-meta">
+          <span class="kind">MCP server</span>
+          2026<br>
+          Smart Streams
+        </div>
+        <div>
+          <h3>Component library, made legible to agents</h3>
+          <p>
+            Designed and built a custom MCP server that exposes the firm's shared component
+            library — props, variants, usage rules, do/don't examples — to AI coding agents.
+            Product teams now get accurate, context-aware UI scaffolding from their agents
+            instead of hallucinated component APIs.
+          </p>
+          <div class="work-stack">
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">MCP SDK</span>
+            <span class="stack-pill">Storybook</span>
+            <span class="stack-pill">Node</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-meta">
+          <span class="kind">migration</span>
+          2026<br>
+          Smart Streams
+        </div>
+        <div>
+          <h3>Angular 18 → 21, Storybook 8 → 10</h3>
+          <p>
+            End-to-end version upgrade across the shared component library used by every
+            product team. Sequenced the breaking-change path, ran consumer-side coordination,
+            and kept Storybook docs green throughout. Cleaned up enough technical debt along
+            the way to make the next jump cheap.
+          </p>
+          <div class="work-stack">
+            <span class="stack-pill">Angular 21</span>
+            <span class="stack-pill">Storybook 10</span>
+            <span class="stack-pill">TypeScript</span>
+            <span class="stack-pill">Vitest</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-meta">
+          <span class="kind">greenfield</span>
+          2024–2025<br>
+          Ingram Micro
+        </div>
+        <div>
+          <h3>Support platform with conversational assistant</h3>
+          <p>
+            Built the Xvantage support platform from scratch and integrated an assistant
+            using Google CCAI Platform and Dialogflow, moving a meaningful share of manual
+            call volume onto a self-serve digital channel. End-to-end ownership from
+            architecture through ship.
+          </p>
+          <div class="work-stack">
+            <span class="stack-pill">React</span>
+            <span class="stack-pill">CCAI Platform</span>
+            <span class="stack-pill">Dialogflow</span>
+            <span class="stack-pill">RTL</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="work-card">
+        <div class="work-meta">
+          <span class="kind">commerce</span>
+          2022–2024<br>
+          Ingram Micro
+        </div>
+        <div>
+          <h3>Xvantage: cart, checkout, discounts, subscriptions</h3>
+          <p>
+            Multi-domain contributions across a B2B commerce platform — cart and checkout
+            flows, the global discount management surface, subscription management, and
+            order status tracking. Polyglot frontend work touching React, Angular 17, Vue 3,
+            and Dojo modules.
+          </p>
+          <div class="work-stack">
+            <span class="stack-pill">React</span>
+            <span class="stack-pill">Angular 17</span>
+            <span class="stack-pill">Vue 3</span>
+            <span class="stack-pill">Dojo</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ STACK ============ -->
+  <section class="block" id="stack">
+    <div class="block-head">
+      <span class="label">stack</span>
+      <h2>Tools I reach for.</h2>
+    </div>
+
+    <div class="stack-grid">
+      <div class="stack-group">
+        <h4>Frameworks</h4>
+        <ul>
+          <li>Angular <span class="muted">18 – 21</span></li>
+          <li>React <span class="muted">18 – 19</span></li>
+          <li>Vue.js <span class="muted">3.4</span></li>
+          <li>Dojo JS</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Languages</h4>
+        <ul>
+          <li>TypeScript</li>
+          <li>JavaScript</li>
+          <li>HTML &amp; CSS</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Testing</h4>
+        <ul>
+          <li>Playwright <span class="muted">E2E</span></li>
+          <li>Vitest</li>
+          <li>Karma</li>
+          <li>React Testing Library</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>AI &amp; agents</h4>
+        <ul>
+          <li>Claude, Copilot, Amazon Q, Kiro</li>
+          <li>MCP server development</li>
+          <li>Agent-readiness for repos</li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Design &amp; ops</h4>
+        <ul>
+          <li>Figma</li>
+          <li>Docker, Kubernetes <span class="muted">working</span></li>
+        </ul>
+      </div>
+      <div class="stack-group">
+        <h4>Collaboration</h4>
+        <ul>
+          <li>Git, GitHub, Bitbucket</li>
+          <li>JIRA, Confluence</li>
+          <li>Google CCAI, Dialogflow</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="block contact-block" id="contact">
+    <div class="block-head">
+      <span class="label">contact</span>
+      <h2>Let's <em>talk</em>.</h2>
+    </div>
+    <dl class="contact-links">
+      <dt>email</dt>
+      <dd><a href="mailto:pranjal.thakur.work@gmail.com">pranjal.thakur.work@gmail.com</a></dd>
+      <dt>linkedin</dt>
+      <dd><a href="https://linkedin.com/in/pranjal-thakur-b3994418b">linkedin.com/in/pranjal-thakur-b3994418b</a></dd>
+      <dt>github</dt>
+      <dd><a href="https://github.com/thakurpranjal1911">github.com/thakurpranjal1911</a></dd>
+    </dl>
+  </section>
+
+  <footer>
+    <span>© 2026 Pranjal Thakue — Mumbai, India</span>
+    <span>Built with HTML, restraint, and a little Fraunces.</span>
+  </footer>
+
+</main>
+
+<!-- ============ AGENT VIEW ============ -->
+<div class="wrap" id="agent-view">
+  <div class="agent-header">
+    <span class="label">view · agent</span>
+    <h2>Structured profile</h2>
+    <p>Same content, served as the JSON-LD an AI agent would actually consume. Toggle back to human view in the header.</p>
+  </div>
+  <pre class="json" id="json-payload"></pre>
+</div>
+
+<script>
+  // ===== Schema payload (rendered with syntax highlighting in agent view) =====
+  const profile = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pranjal Thakur",
+    "jobTitle": "Frontend Developer",
+    "location": "Mumbai, India",
+    "availability": "open-to-remote",
+    "yearsOfExperience": 4,
+    "summary": "Frontend developer making codebases agent-ready. Builds MCP servers and ships across Angular, React, Vue, and Dojo.",
+    "currentRole": {
+      "company": "Smart Streams",
+      "title": "Frontend Developer",
+      "since": "2025-11",
+      "focus": ["Component library", "MCP servers", "Angular 18 → 21 migration", "Storybook 8 → 10 migration", "AI enablement"]
+    },
+    "previousRoles": [
+      {
+        "company": "Tata Consultancy Services",
+        "client": "Ingram Micro · Xvantage",
+        "title": "Frontend Developer",
+        "from": "2022-06",
+        "to": "2025-11",
+        "domains": ["Order Status Tracking", "Cart & Checkout", "Global Discount Management", "Subscription Management", "Support Platform"],
+        "awards": ["Spot Performer", "Star Performer", "Star Team", "Work Excellence"]
+      }
+    ],
+    "stack": {
+      "frameworks": ["Angular 18-21", "React 18-19", "Vue.js 3.4", "Dojo JS"],
+      "languages": ["TypeScript", "JavaScript", "HTML", "CSS"],
+      "testing": ["Playwright", "Vitest", "Karma", "React Testing Library"],
+      "ai": ["Claude", "GitHub Copilot", "Amazon Q", "Kiro", "MCP development"],
+      "ops": ["Docker", "Kubernetes", "Git", "GitHub", "Bitbucket"]
+    },
+    "contact": {
+      "email": "pranjal.thakur.work@gmail.com",
+      "linkedin": "https://linkedin.com/in/pranjal-thakur-b3994418b",
+      "github": "https://github.com/thakurpranjal1911"
+    }
+  };
+
+  // Tiny JSON pretty-printer with semantic spans for color
+  function renderJSON(obj, indent = 0) {
+    const pad = '  '.repeat(indent);
+    const padNext = '  '.repeat(indent + 1);
+    if (obj === null) return '<span class="b">null</span>';
+    if (typeof obj === 'boolean') return `<span class="b">${obj}</span>`;
+    if (typeof obj === 'number') return `<span class="n">${obj}</span>`;
+    if (typeof obj === 'string') return `<span class="s">"${obj.replace(/"/g, '\\"')}"</span>`;
+    if (Array.isArray(obj)) {
+      if (obj.length === 0) return '[]';
+      const items = obj.map(i => padNext + renderJSON(i, indent + 1));
+      return `[\n${items.join(',\n')}\n${pad}]`;
+    }
+    if (typeof obj === 'object') {
+      const keys = Object.keys(obj);
+      if (keys.length === 0) return '{}';
+      const lines = keys.map(k => `${padNext}<span class="k">"${k}"</span>: ${renderJSON(obj[k], indent + 1)}`);
+      return `{\n${lines.join(',\n')}\n${pad}}`;
+    }
+    return String(obj);
+  }
+
+  document.getElementById('json-payload').innerHTML = renderJSON(profile);
+
+  // ===== View toggle =====
+  const buttons = document.querySelectorAll('.view-toggle button');
+  const agentView = document.getElementById('agent-view');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const view = btn.dataset.view;
+      buttons.forEach(b => {
+        b.classList.toggle('active', b === btn);
+        b.setAttribute('aria-pressed', b === btn);
+      });
+      if (view === 'agent') {
+        document.body.classList.add('agent-mode');
+        agentView.classList.add('active');
+      } else {
+        document.body.classList.remove('agent-mode');
+        agentView.classList.remove('active');
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
